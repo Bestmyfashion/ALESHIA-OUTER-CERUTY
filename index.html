@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALESHIA OUTER CERUTY - Outer Premium Wanita</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #f5f5f5 0%, #f8e1e4 100%);
+        }
+        
+        .price-badge {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-image {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.03);
+        }
+        
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+        
+        .notification-slide {
+            animation: slideIn 0.5s forwards, slideOut 0.5s forwards 3s;
+            transform: translateY(100%);
+        }
+        
+        @keyframes slideIn {
+            to {
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideOut {
+            to {
+                transform: translateY(-100%);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Notification Popup -->
+    <div id="notification" class="fixed bottom-0 left-0 right-0 bg-white shadow-lg rounded-t-lg mx-4 mb-4 p-4 z-50 hidden notification-slide" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd()">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center">
+                <img id="notif-photo" src="" alt="Customer" class="w-10 h-10 rounded-full object-cover mr-3">
+                <div>
+                    <p class="font-semibold text-sm" id="notif-name">Siti dari Jakarta</p>
+                    <p class="text-xs text-gray-500">Baru saja membeli Aleshia Outer Ceruty</p>
+                </div>
+            </div>
+            <button onclick="closeNotification()" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-gray-300 rounded-full"></div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+        <div class="relative max-w-4xl w-full p-4">
+            <button onclick="closeModal()" class="absolute -top-12 right-0 text-white text-3xl hover:text-gray-300">&times;</button>
+            <img id="modalImage" src="" alt="Product Image" class="w-full h-auto max-h-screen object-contain">
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 bg-white shadow-sm z-40">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://cdn.orderonline.id/uploads/images_4875061750434042160.png" alt="Aleshia Logo" class="h-10">
+                <span class="ml-2 font-bold text-xl text-pink-600">ALESHIA</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#features" class="hover:text-pink-600">Keunggulan</a>
+                <a href="#gallery" class="hover:text-pink-600">Galeri</a>
+                <a href="#testimonials" class="hover:text-pink-600">Testimoni</a>
+                <a href="#faq" class="hover:text-pink-600">FAQ</a>
+            </div>
+            <a href="#order" class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-full font-medium transition duration-300">
+                BELI SEKARANG
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient py-12 md:py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                <h1 class="text-3xl md:text-5xl font-bold text-gray-800 leading-tight mb-4">
+                    Outer Ceruty Premium <span class="text-pink-600">Aleshia</span>
+                </h1>
+                <p class="text-lg text-gray-600 mb-6">
+                    Tampil elegan dan stylish dengan outer ceruty berkualitas tinggi. Nyaman dipakai seharian dengan desain yang timeless.
+                </p>
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <div class="bg-white px-3 py-1 rounded-full shadow-sm text-sm font-medium flex items-center">
+                        <i class="fas fa-check-circle text-pink-500 mr-1"></i> Bahan Premium
+                    </div>
+                    <div class="bg-white px-3 py-1 rounded-full shadow-sm text-sm font-medium flex items-center">
+                        <i class="fas fa-check-circle text-pink-500 mr-1"></i> Desain Eksklusif
+                    </div>
+                    <div class="bg-white px-3 py-1 rounded-full shadow-sm text-sm font-medium flex items-center">
+                        <i class="fas fa-check-circle text-pink-500 mr-1"></i> Nyaman Dipakai
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <div class="flex items-center">
+                        <div class="text-3xl font-bold text-pink-600">Rp195.000</div>
+                        <div class="ml-3 text-lg text-gray-500 line-through">Rp390.000</div>
+                        <div class="ml-3 bg-pink-100 text-pink-800 text-xs font-bold px-2 py-1 rounded">50% OFF</div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">Harga promo berlaku hingga <span id="countdown-date" class="font-medium"></span></p>
+                </div>
+                <a href="#order" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition duration-300 inline-block mr-4">
+                    <i class="fas fa-shopping-bag mr-2"></i> BELI SEKARANG
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=081249315109&text=Halo%2C%20saya%20menginginkan%20Aleshia%20Outer%20Ceruty" class="bg-green-100 hover:bg-green-200 text-green-800 px-6 py-3 rounded-full font-bold text-lg shadow hover:shadow-md transition duration-300 inline-block">
+                    <i class="fab fa-whatsapp mr-2"></i> CHAT KAMI
+                </a>
+            </div>
+            <div class="md:w-1/2 flex justify-center fade-in">
+                <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasi-m241j2dhh0h4f5.webp" alt="Aleshia Outer Ceruty" class="rounded-lg shadow-xl max-w-md w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-around text-center">
+                <div class="px-4 py-2">
+                    <div class="text-3xl font-bold text-pink-600" id="view-counter">12,543</div>
+                    <div class="text-gray-600">Pengunjung Hari Ini</div>
+                </div>
+                <div class="px-4 py-2">
+                    <div class="text-3xl font-bold text-pink-600" id="sold-counter">8,765</div>
+                    <div class="text-gray-600">Terjual</div>
+                </div>
+                <div class="px-4 py-2">
+                    <div class="text-3xl font-bold text-pink-600" id="stock-counter">47</div>
+                    <div class="text-gray-600">Stok Tersisa</div>
+                </div>
+                <div class="px-4 py-2">
+                    <div class="text-3xl font-bold text-pink-600">4.9</div>
+                    <div class="text-gray-600">Rating (2.4K+ ulasan)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Solution Section -->
+    <section class="bg-gray-50 py-12 md:py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Masalah Fashion Wanita & Solusi dari Aleshia</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 text-red-600 p-2 rounded-full mr-3">
+                            <i class="fas fa-exclamation-circle text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Masalah Umum</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-times text-red-500 mt-1 mr-2"></i>
+                            <span>Outer biasa mudah kusut dan tidak menjaga bentuk</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-times text-red-500 mt-1 mr-2"></i>
+                            <span>Bahan tidak nyaman dan gerah saat dipakai</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-times text-red-500 mt-1 mr-2"></i>
+                            <span>Desain monoton dan tidak stylish</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-times text-red-500 mt-1 mr-2"></i>
+                            <span>Harga mahal untuk kualitas yang biasa saja</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 text-green-600 p-2 rounded-full mr-3">
+                            <i class="fas fa-check-circle text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Solusi Aleshia</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Bahan ceruty premium yang tidak mudah kusut dan menjaga bentuk</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Bahan breathable yang nyaman dipakai seharian</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Desain eksklusif yang stylish dan timeless</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Harga terjangkau untuk kualitas premium</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Keunggulan Aleshia Outer Ceruty</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6 rounded-xl hover:bg-gray-50 transition duration-300">
+                    <div class="bg-pink-100 text-pink-600 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-tshirt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Bahan Premium</h3>
+                    <p class="text-gray-600">Terbuat dari bahan ceruty berkualitas tinggi yang lembut, tidak mudah kusut, dan nyaman dipakai seharian.</p>
+                </div>
+                <div class="text-center p-6 rounded-xl hover:bg-gray-50 transition duration-300">
+                    <div class="bg-pink-100 text-pink-600 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-ruler-combined text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Desain Eksklusif</h3>
+                    <p class="text-gray-600">Potongan yang sempurna dengan detail yang rapi, cocok untuk berbagai bentuk tubuh.</p>
+                </div>
+                <div class="text-center p-6 rounded-xl hover:bg-gray-50 transition duration-300">
+                    <div class="bg-pink-100 text-pink-600 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-palette text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Warna Stylish</h3>
+                    <p class="text-gray-600">Pilihan warna yang elegan dan timeless, mudah dipadukan dengan berbagai outfit.</p>
+                </div>
+                <div class="text-center p-6 rounded-xl hover:bg-gray-50 transition duration-300">
+                    <div class="bg-pink-100 text-pink-600 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-wind text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Breathable</h3>
+                    <p class="text-gray-600">Bahan yang ringan dan breathable, tidak gerah meski dipakai di cuaca panas.</p>
+                </div>
+                <div class="text-center p-6 rounded-xl hover:bg-gray-50 transition duration-300">
+                    <div class="bg-pink-100 text-pink-600 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-medal text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Kualitas Terjamin</h3>
+                    <p class="text-gray-600">Setiap produk melalui quality control ketat untuk memastikan kualitas terbaik untuk Anda.</p>
+                </div>
+                <div class="text-center p-6 rounded-xl hover:bg-gray-50 transition duration-300">
+                    <div class="bg-pink-100 text-pink-600 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-gift text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Bonus Spesial</h3>
+                    <p class="text-gray-600">Dapatkan pouch eksklusif gratis dengan setiap pembelian outer Aleshia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-12 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Galeri Produk</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="gallery-image" onclick="openModal('https://down-id.img.susercontent.com/file/id-11134207-7rasi-m241j2dhh0h4f5.webp')">
+                    <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasi-m241j2dhh0h4f5.webp" alt="Aleshia Outer 1" class="w-full h-48 md:h-64 object-cover rounded-lg shadow hover:shadow-lg transition duration-300">
+                </div>
+                <div class="gallery-image" onclick="openModal('https://down-id.img.susercontent.com/file/id-11134207-7rase-m241j2dr86wdb1.webp')">
+                    <img src="https://down-id.img.susercontent.com/file/id-11134207-7rase-m241j2dr86wdb1.webp" alt="Aleshia Outer 2" class="w-full h-48 md:h-64 object-cover rounded-lg shadow hover:shadow-lg transition duration-300">
+                </div>
+                <div class="gallery-image" onclick="openModal('https://down-id.img.susercontent.com/file/id-11134207-7quky-lh52wbrvq19n48.webp')">
+                    <img src="https://down-id.img.susercontent.com/file/id-11134207-7quky-lh52wbrvq19n48.webp" alt="Aleshia Outer 3" class="w-full h-48 md:h-64 object-cover rounded-lg shadow hover:shadow-lg transition duration-300">
+                </div>
+                <div class="gallery-image" onclick="openModal('https://down-id.img.susercontent.com/file/id-11134207-7ras9-m5uzlryvks9if5.webp')">
+                    <img src="https://down-id.img.susercontent.com/file/id-11134207-7ras9-m5uzlryvks9if5.webp" alt="Aleshia Outer 4" class="w-full h-48 md:h-64 object-cover rounded-lg shadow hover:shadow-lg transition duration-300">
+                </div>
+                <div class="gallery-image" onclick="openModal('https://down-id.img.susercontent.com/file/id-11134207-7r992-lskqwbb9ucrr5a.webp')">
+                    <img src="https://down-id.img.susercontent.com/file/id-11134207-7r992-lskqwbb9ucrr5a.webp" alt="Aleshia Outer 5" class="w-full h-48 md:h-64 object-cover rounded-lg shadow hover:shadow-lg transition duration-300">
+                </div>
+                <div class="gallery-image" onclick="openModal('https://down-id.img.susercontent.com/file/id-11134207-7rasl-m241j2dhcswqfb.webp')">
+                    <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasl-m241j2dhcswqfb.webp" alt="Aleshia Outer 6" class="w-full h-48 md:h-64 object-cover rounded-lg shadow hover:shadow-lg transition duration-300">
+                </div>
+                <div class="gallery-image" onclick="openModal('https://down-id.img.susercontent.com/file/id-11134207-7rasi-m241j2dhh0h4f5.webp')">
+                    <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasi-m241j2dhh0h4f5.webp" alt="Aleshia Outer 7" class="w-full h-48 md:h-64 object-cover rounded-lg shadow hover:shadow-lg transition duration-300">
+                </div>
+                <div class="gallery-image" onclick="openModal('https://down-id.img.susercontent.com/file/id-11134207-7rase-m241j2dr86wdb1.webp')">
+                    <img src="https://down-id.img.susercontent.com/file/id-11134207-7rase-m241j2dr86wdb1.webp" alt="Aleshia Outer 8" class="w-full h-48 md:h-64 object-cover rounded-lg shadow hover:shadow-lg transition duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Apa Kata Mereka?</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="testimonial-card bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div>
+                            <h4 class="font-bold">Dewi L.</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Bahan outer Aleshia sangat nyaman dipakai, tidak gerah meski dipakai seharian. Desainnya juga sangat stylish!"</p>
+                    <p class="text-sm text-gray-500 mt-2">Jakarta, 2 minggu lalu</p>
+                </div>
+                <div class="testimonial-card bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div>
+                            <h4 class="font-bold">Rina W.</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Saya sudah beli 3 warna berbeda karena sangat suka dengan kualitasnya. Bahannya premium dan jahitannya rapi."</p>
+                    <p class="text-sm text-gray-500 mt-2">Bandung, 1 bulan lalu</p>
+                </div>
+                <div class="testimonial-card bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div>
+                            <h4 class="font-bold">Siti R.</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Outer ini worth it banget untuk harganya. Kualitasnya seperti brand mahal tapi dengan harga yang terjangkau."</p>
+                    <p class="text-sm text-gray-500 mt-2">Surabaya, 3 minggu lalu</p>
+                </div>
+                <div class="testimonial-card bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div>
+                            <h4 class="font-bold">Ani S.</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Pengiriman cepat dan packing rapi. Outer-nya persis seperti di foto, bahannya lembut dan jatuhnya bagus."</p>
+                    <p class="text-sm text-gray-500 mt-2">Yogyakarta, 1 minggu lalu</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-12 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Pertanyaan yang Sering Diajukan</h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="bg-white p-5 rounded-lg shadow-sm">
+                    <button class="faq-btn flex justify-between items-center w-full text-left font-bold text-lg">
+                        <span>Apakah bahan outer ini mudah kusut?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-3 hidden text-gray-600">
+                        Tidak, bahan ceruty premium yang kami gunakan memiliki karakteristik tidak mudah kusut dan bisa menjaga bentuk dengan baik meski dipakai seharian.
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm">
+                    <button class="faq-btn flex justify-between items-center w-full text-left font-bold text-lg">
+                        <span>Berapa lama estimasi pengiriman?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-3 hidden text-gray-600">
+                        Estimasi pengiriman 2-5 hari kerja untuk wilayah Jawa dan 3-7 hari kerja untuk luar Jawa, tergantung lokasi pengiriman.
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm">
+                    <button class="faq-btn flex justify-between items-center w-full text-left font-bold text-lg">
+                        <span>Apakah tersedia dalam berbagai ukuran?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-3 hidden text-gray-600">
+                        Ya, outer Aleshia tersedia dalam ukuran S, M, L, dan XL dengan cutting yang universal sehingga cocok untuk berbagai bentuk tubuh.
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm">
+                    <button class="faq-btn flex justify-between items-center w-full text-left font-bold text-lg">
+                        <span>Bagaimana cara perawatannya?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-3 hidden text-gray-600">
+                        Outer ini bisa dicuci dengan mesin (gunakan air dingin) atau dry clean. Disarankan untuk tidak menggunakan pemutih dan disetrika dengan suhu sedang.
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm">
+                    <button class="faq-btn flex justify-between items-center w-full text-left font-bold text-lg">
+                        <span>Apakah ada garansi untuk produk ini?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-3 hidden text-gray-600">
+                        Kami memberikan garansi 7 hari untuk cacat produksi. Jika ada masalah dengan produk yang Anda terima, silakan hubungi customer service kami.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="order" class="py-12 md:py-20 bg-pink-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Jangan Lewatkan Kesempatan Ini!</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Dapatkan Aleshia Outer Ceruty dengan harga spesial sebelum kembali ke harga normal.</p>
+            
+            <div class="bg-white text-gray-800 rounded-xl p-6 max-w-2xl mx-auto shadow-xl mb-8">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="mb-4 md:mb-0 text-left">
+                        <h3 class="font-bold text-lg">Aleshia Outer Ceruty</h3>
+                        <p class="text-sm text-gray-600">Premium Quality Women's Outer</p>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="text-3xl font-bold text-pink-600">Rp195.000</div>
+                        <div class="ml-3 text-lg text-gray-500 line-through">Rp390.000</div>
+                    </div>
+                </div>
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="font-medium">Stok Tersisa:</span>
+                            <span class="font-bold ml-2" id="stock-counter-cta">47</span>
+                        </div>
+                        <div class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-bold">
+                            <i class="fas fa-fire mr-1"></i> TERJUAL 50+ HARI INI
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-pink-600 h-2.5 rounded-full" style="width: 75%"></div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1">Stok hampir habis! 75% telah terjual</p>
+                </div>
+            </div>
+            
+            <div class="mb-8">
+                <div class="inline-block bg-white text-pink-600 px-4 py-2 rounded-full font-bold mb-4">
+                    <i class="fas fa-clock mr-2"></i> PROMO BERAKHIR DALAM:
+                </div>
+                <div id="countdown" class="flex justify-center space-x-2 text-2xl font-bold">
+                    <div class="bg-white text-pink-600 px-3 py-1 rounded">00</div>
+                    <div>:</div>
+                    <div class="bg-white text-pink-600 px-3 py-1 rounded">00</div>
+                    <div>:</div>
+                    <div class="bg-white text-pink-600 px-3 py-1 rounded">00</div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <a href="https://alya.orderonline.id/aleshia-outer-ceruty" class="bg-white hover:bg-gray-100 text-pink-600 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition duration-300 inline-flex items-center justify-center">
+                    <i class="fas fa-shopping-cart mr-2"></i> BELI SEKARANG
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=081249315109&text=Halo%2C%20saya%20menginginkan%20Aleshia%20Outer%20Ceruty" class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition duration-300 inline-flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-2 text-xl"></i> PESAN VIA WHATSAPP
+                </a>
+            </div>
+            
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+                <div class="flex items-center bg-white bg-opacity-20 px-4 py-2 rounded-full">
+                    <i class="fas fa-shield-alt mr-2"></i> 100% Original
+                </div>
+                <div class="flex items-center bg-white bg-opacity-20 px-4 py-2 rounded-full">
+                    <i class="fas fa-truck mr-2"></i> Gratis Ongkir*
+                </div>
+                <div class="flex items-center bg-white bg-opacity-20 px-4 py-2 rounded-full">
+                    <i class="fas fa-exchange-alt mr-2"></i> Garansi 7 Hari
+                </div>
+                <div class="flex items-center bg-white bg-opacity-20 px-4 py-2 rounded-full">
+                    <i class="fas fa-credit-card mr-2"></i> COD Available
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="https://cdn.orderonline.id/uploads/images_4875061750434042160.png" alt="Aleshia Logo" class="h-8">
+                        <span class="ml-2 font-bold text-xl">ALESHIA</span>
+                    </div>
+                    <p class="text-gray-400">Outer premium untuk wanita modern yang ingin tampil stylish dan elegan setiap hari.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Tautan Cepat</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-gray-400 hover:text-white">Keunggulan</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-white">Galeri</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white">Testimoni</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-white">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Kontak Kami</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone-alt mr-2"></i> 0812-4931-5109
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fab fa-whatsapp mr-2"></i> 0812-4931-5109
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i> cs@aleshia.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Aleshia Outer Ceruty. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-6 right-6 z-40">
+        <a href="https://api.whatsapp.com/send?phone=081249315109&text=Halo%2C%20saya%20menginginkan%20Aleshia%20Outer%20Ceruty" class="bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition duration-300">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <script>
+        // Generate avatar with initials
+        function generateAvatar(name, bgColor, textColor) {
+            const names = name.split(' ');
+            let initials = names[0].substring(0, 1).toUpperCase();
+            if (names.length > 1) {
+                initials += names[names.length - 1].substring(0, 1).toUpperCase();
+            }
+            
+            const canvas = document.createElement('canvas');
+            canvas.width = 100;
+            canvas.height = 100;
+            const context = canvas.getContext('2d');
+            
+            // Background color
+            context.fillStyle = bgColor || '#f87171';
+            context.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Text
+            context.font = 'bold 40px Poppins';
+            context.fillStyle = textColor || '#ffffff';
+            context.textAlign = 'center';
+            context.textBaseline = 'middle';
+            context.fillText(initials, canvas.width / 2, canvas.height / 2);
+            
+            return canvas.toDataURL();
+        }
+
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const endOfDay = new Date();
+            endOfDay.setHours(23, 59, 59, 0);
+            
+            const diff = endOfDay - now;
+            
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').innerHTML = `
+                <div class="bg-white text-pink-600 px-3 py-1 rounded">${hours.toString().padStart(2, '0')}</div>
+                <div>:</div>
+                <div class="bg-white text-pink-600 px-3 py-1 rounded">${minutes.toString().padStart(2, '0')}</div>
+                <div>:</div>
+                <div class="bg-white text-pink-600 px-3 py-1 rounded">${seconds.toString().padStart(2, '0')}</div>
+            `;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Set countdown date
+        const countdownDate = new Date();
+        countdownDate.setDate(countdownDate.getDate() + 3);
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        document.getElementById('countdown-date').textContent = countdownDate.toLocaleDateString('id-ID', options);
+        
+        // Dynamic counters
+        function animateCounter(elementId, target, duration = 2000) {
+            const element = document.getElementById(elementId);
+            const start = parseInt(element.textContent.replace(/,/g, ''));
+            const increment = (target - start) / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if ((increment > 0 && current >= target) || (increment < 0 && current <= target)) {
+                    clearInterval(timer);
+                    current = target;
+                }
+                element.textContent = Math.floor(current).toLocaleString();
+            }, 16);
+        }
+        
+        // Initialize counters
+        animateCounter('view-counter', Math.floor(Math.random() * 5000) + 10000);
+        animateCounter('sold-counter', Math.floor(Math.random() * 3000) + 8000);
+        
+        // Stock counter decreases over time
+        let stock = 47;
+        document.getElementById('stock-counter').textContent = stock;
+        document.getElementById('stock-counter-cta').textContent = stock;
+        
+        setInterval(() => {
+            if (stock > 0 && Math.random() > 0.7) {
+                stock--;
+                document.getElementById('stock-counter').textContent = stock;
+                document.getElementById('stock-counter-cta').textContent = stock;
+            }
+        }, 30000);
+        
+        // Notification popup
+        const regions = [
+            'Jakarta', 'Bandung', 'Surabaya', 'Medan', 'Semarang', 'Yogyakarta', 
+            'Bali', 'Makassar', 'Palembang', 'Padang', 'Pekanbaru', 'Banjarmasin',
+            'Balikpapan', 'Manado', 'Malang', 'Solo', 'Bogor', 'Bekasi', 'Tangerang',
+            'Lampung', 'Aceh', 'Lombok', 'Mataram', 'Pontianak', 'Samarinda'
+        ];
+        
+        const femaleNames = [
+            'Dewi', 'Rina', 'Siti', 'Ani', 'Linda', 'Yuni', 'Nur', 'Diah', 'Maya', 
+            'Rini', 'Dina', 'Lina', 'Tina', 'Wati', 'Sari', 'Dewi', 'Ratna', 'Indah',
+            'Rahma', 'Nia', 'Dwi', 'Tri', 'Eka', 'Fitri', 'Kartika', 'Putri', 'Citra'
+        ];
+        
+        let touchStartY = 0;
+        let notificationTimeout;
+        
+        function touchStart(e) {
+            touchStartY = e.touches[0].clientY;
+        }
+        
+        function touchMove(e) {
+            const notification = document.getElementById('notification');
+            const currentY = e.touches[0].clientY;
+            const diff = touchStartY - currentY;
+            
+            if (diff > 0) { // Swiping up
+                notification.style.transform = `translateY(-${diff}px)`;
+                if (diff > 50) {
+                    clearTimeout(notificationTimeout);
+                    closeNotification();
+                }
+            }
+        }
+        
+        function touchEnd() {
+            const notification = document.getElementById('notification');
+            notification.style.transform = 'translateY(0)';
+        }
+        
+        function showNotification() {
+            setTimeout(() => {
+                const notification = document.getElementById('notification');
+                const randomRegion = regions[Math.floor(Math.random() * regions.length)];
+                const randomName = femaleNames[Math.floor(Math.random() * femaleNames.length)];
+                
+                const fullName = `${randomName} dari ${randomRegion}`;
+                document.getElementById('notif-name').textContent = fullName;
+                document.getElementById('notif-photo').src = generateAvatar(fullName);
+                
+                notification.classList.remove('hidden');
+                notification.style.animation = 'slideIn 0.5s forwards';
+                
+                notificationTimeout = setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.5s forwards';
+                }, 3000);
+            }, 3000);
+        }
+        
+        function closeNotification() {
+            const notification = document.getElementById('notification');
+            notification.style.animation = 'slideOut 0.5s forwards';
+        }
+        
+        // Show notification every 30 seconds
+        showNotification();
+        setInterval(showNotification, 30000);
+        
+        // Image modal
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modalImg.src = imageSrc;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside the image
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // FAQ accordion
+        document.querySelectorAll('.faq-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animate elements on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
